@@ -13,7 +13,6 @@ public class ParkingBoysServiceImpl implements ParkingBoysService {
         MemoryDB memoryDB = new MemoryDB();
         List<ParkingBoy> parkingBoyList = memoryDB.getParkingBoyList();
         parkingBoyList.add(parkBoy);
-        memoryDB.setParkingBoyList(parkingBoyList);
         return parkingBoyList;
     }
 }
