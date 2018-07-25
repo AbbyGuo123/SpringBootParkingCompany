@@ -3,7 +3,9 @@ package com.oocl.parkingCompany.ServiceImpl;
 import com.oocl.parkingCompany.Model.Order;
 import com.oocl.parkingCompany.Model.Receipt;
 import com.oocl.parkingCompany.Service.OrderService;
+import com.oocl.parkingCompany.Service.ParkingBoysService;
 import com.oocl.parkingCompany.memoryDB.MemoryDB;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,6 +14,8 @@ import java.util.stream.Collectors;
 
 @Service
 public class OrderServiceImpl implements OrderService {
+    @Autowired
+    private ParkingBoysService parkingBoysService;
 
     public Order addOrder(Receipt receipt){
         UUID uuid = UUID.randomUUID();
@@ -31,9 +35,13 @@ public class OrderServiceImpl implements OrderService {
         List<Order> unRobOrderList = this.getUnRobOrderList();
         Order RobOrder = null;
         if(unRobOrderList.size()>0){
-            RobOrder = unRobOrderList.get(0);
-            RobOrder.setParkingBoyId(parkingBoyId);
-            RobOrder.setStatus("Rob");
+            if(parkingBoysService.IsParkingBoyHasAvaliablePark(parkingBoyId)) {
+                RobOrder = unRobOrderList.get(0);
+                RobOrder.setParkingBoyId(parkingBoyId);
+                int parkingLotId = parkingBoysService.getParkingBoyAllParkingLot(parkingBoyId).stream().filter(x->x.getAvaliable()>0).collect(Collectors.toList()).get(0).getId();
+                RobOrder.setParkingLotId(parkingLotId);
+                RobOrder.setStatus("Rob");
+            }
         }
         return RobOrder;
     }

@@ -17,7 +17,7 @@ public class ReceiptServiceImpl implements ReceiptService {
     @Autowired
     private OrderService orderService;
     public Receipt parkingCar(String CarNo){
-        if(parkingLotService.getfilterParkingLotIsAvalidate("avaliable").size()>0) {
+        if(parkingLotService.getfilterParkingLotByStatus("avaliable").size()>0) {
             UUID uuid = UUID.randomUUID();
             Receipt receipt = new Receipt(uuid,CarNo);
             orderService.addOrder(receipt);

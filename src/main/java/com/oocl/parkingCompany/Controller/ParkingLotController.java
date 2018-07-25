@@ -25,8 +25,8 @@ public class ParkingLotController {
     }
 
     @GetMapping
-    public List<ParkingLot> getfilterParkingLotIsAvalidate(String status){
-        return parkingLotService.getfilterParkingLotIsAvalidate(status);
+    public List<ParkingLot> getfilterParkingLotByStatus(String status){
+        return parkingLotService.getfilterParkingLotByStatus(status);
     }
 
 }

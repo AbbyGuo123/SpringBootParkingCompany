@@ -23,7 +23,7 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         return parkingLot;
     }
 
-    public List<ParkingLot> getfilterParkingLotIsAvalidate(String status){
+    public List<ParkingLot> getfilterParkingLotByStatus(String status){
         if(status.equals("avaliable"))
             return memoryDB.getParkingLotList().stream().filter(x->x.getAvaliable()>0).collect(Collectors.toList());
         else
