@@ -1,5 +1,7 @@
 package com.oocl.parkingCompany.ServiceImpl;
 
+import com.oocl.parkingCompany.Exception.NotHasAvaliableParkException;
+import com.oocl.parkingCompany.Exception.NotHaveUnRobOrderException;
 import com.oocl.parkingCompany.Model.Order;
 import com.oocl.parkingCompany.Model.Receipt;
 import com.oocl.parkingCompany.Service.OrderService;
@@ -32,17 +34,21 @@ public class OrderServiceImpl implements OrderService {
     }
 
     public Order RobOrder(int parkingBoyId){
-        List<Order> unRobOrderList = this.getUnRobOrderList();
         Order RobOrder = null;
-        if(unRobOrderList.size()>0){
-            if(parkingBoysService.IsParkingBoyHasAvaliablePark(parkingBoyId)) {
+        if(parkingBoysService.IsParkingBoyHasAvaliablePark(parkingBoyId)) {
+            List<Order> unRobOrderList = this.getUnRobOrderList();
+            if(unRobOrderList.size()>0){
                 RobOrder = unRobOrderList.get(0);
                 RobOrder.setParkingBoyId(parkingBoyId);
                 int parkingLotId = parkingBoysService.getParkingBoyAllParkingLot(parkingBoyId).stream().filter(x->x.getAvaliable()>0).collect(Collectors.toList()).get(0).getId();
                 RobOrder.setParkingLotId(parkingLotId);
                 RobOrder.setStatus("Rob");
             }
+            else
+                throw new NotHaveUnRobOrderException();
         }
+        else
+            throw new NotHasAvaliableParkException();
         return RobOrder;
     }
 }
