@@ -6,10 +6,13 @@ import com.oocl.parkingCompany.Service.OrderService;
 import com.oocl.parkingCompany.memoryDB.MemoryDB;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class OrderServiceImpl implements OrderService {
     public Order addOrder(Receipt receipt){
-        Order order = new Order(1,receipt.getId(),"unRob");
+        UUID uuid = UUID.randomUUID();
+        Order order = new Order(uuid,receipt.getId(),"unRob");
         MemoryDB memoryDB = new MemoryDB();
         memoryDB.getOrderList().add(order);
         return order;

@@ -1,31 +1,33 @@
 package com.oocl.parkingCompany.Model;
 
+import java.util.UUID;
+
 public class Order {
-    private int id;
-    private int receiptId;
+    private UUID id;
+    private UUID receiptId;
     private int parkingBoyId;
     private int parkingLotId;
     private String status;
 
-    public Order(int id, int receiptId, String status) {
+    public Order(UUID id, UUID receiptId, String status) {
         this.id = id;
         this.receiptId = receiptId;
         this.status = status;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
-    public int getReceiptId() {
+    public UUID getReceiptId() {
         return receiptId;
     }
 
-    public void setReceiptId(int receiptId) {
+    public void setReceiptId(UUID receiptId) {
         this.receiptId = receiptId;
     }
 

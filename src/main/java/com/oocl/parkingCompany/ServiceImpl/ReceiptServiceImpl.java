@@ -7,6 +7,8 @@ import com.oocl.parkingCompany.Service.ReceiptService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.UUID;
+
 @Service
 public class ReceiptServiceImpl implements ReceiptService {
 
@@ -16,7 +18,8 @@ public class ReceiptServiceImpl implements ReceiptService {
     private OrderService orderService;
     public Receipt parkingCar(String CarNo){
         if(parkingLotService.getfilterParkingLotIsAvalidate("avaliable").size()>0) {
-            Receipt receipt = new Receipt(1,CarNo);
+            UUID uuid = UUID.randomUUID();
+            Receipt receipt = new Receipt(uuid,CarNo);
             orderService.addOrder(receipt);
             return receipt;
         }

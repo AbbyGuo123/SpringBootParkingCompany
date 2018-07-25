@@ -1,18 +1,21 @@
 package com.oocl.parkingCompany.Model;
 
+import java.util.UUID;
+
 public class Receipt {
-    private int id;
+    private UUID id;
     private String CarNo;
 
-    public Receipt(int id, String carNo) {
+    public Receipt(UUID id, String carNo) {
+        this.id = id;
         CarNo = carNo;
     }
 
-    public int getId() {
+    public UUID getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(UUID id) {
         this.id = id;
     }
 
