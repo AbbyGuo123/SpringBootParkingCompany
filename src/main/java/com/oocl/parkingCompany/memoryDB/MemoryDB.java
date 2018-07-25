@@ -1,5 +1,6 @@
 package com.oocl.parkingCompany.memoryDB;
 
+import com.oocl.parkingCompany.Model.Order;
 import com.oocl.parkingCompany.Model.ParkingBoy;
 import com.oocl.parkingCompany.Model.ParkingLot;
 import org.springframework.stereotype.Component;
@@ -11,6 +12,7 @@ import java.util.List;
 public class MemoryDB {
     private List<ParkingBoy> parkingBoyList = new ArrayList<>();
     private List<ParkingLot> parkingLotList = new ArrayList<>();
+    private List<Order> orderList = new ArrayList<>();
     public MemoryDB() {
         this.parkingBoyList.add(new ParkingBoy(1,"1"));
         this.parkingBoyList.add(new ParkingBoy(2,"2"));
@@ -33,5 +35,13 @@ public class MemoryDB {
 
     public void setParkingLotList(List<ParkingLot> parkingLotList) {
         this.parkingLotList = parkingLotList;
+    }
+
+    public List<Order> getOrderList() {
+        return orderList;
+    }
+
+    public void setOrderList(List<Order> orderList) {
+        this.orderList = orderList;
     }
 }
