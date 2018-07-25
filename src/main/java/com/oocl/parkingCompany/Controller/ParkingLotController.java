@@ -24,4 +24,9 @@ public class ParkingLotController {
        return parkingLotService.arrangeParkingBoyInParkingLot(parkingLotId,parkingBoyId);
     }
 
+    @GetMapping("")
+    public List<ParkingLot> getfilterParkingLotIsAvalidate(String status){
+        return parkingLotService.getfilterParkingLotIsAvalidate(status);
+    }
+
 }

@@ -24,4 +24,11 @@ public class ParkingLotTest {
         assertThat(parkingLot.getParkingBoyId(),is(3));
     }
 
+    @Test
+    public void should_return_parkingLotList_when_call_getFilterParkingLotIsAvaliable(){
+        ParkingLotServiceImpl parkingLotService = new ParkingLotServiceImpl();
+        List<ParkingLot> parkingLotList = parkingLotService.getfilterParkingLotIsAvalidate("avaliable");
+        assertThat(parkingLotList.size(),is(1));
+    }
+
 }

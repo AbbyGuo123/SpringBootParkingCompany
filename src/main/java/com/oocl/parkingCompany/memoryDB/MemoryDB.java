@@ -16,7 +16,7 @@ public class MemoryDB {
         this.parkingBoyList.add(new ParkingBoy(2,"2"));
 
         this.parkingLotList.add(new ParkingLot(1,1,1,1));
-        this.parkingLotList.add(new ParkingLot(2,2,2,2));
+        this.parkingLotList.add(new ParkingLot(2,2,0,2));
     }
 
     public List<ParkingBoy> getParkingBoyList() {

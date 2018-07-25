@@ -22,4 +22,11 @@ public class ParkingLotServiceImpl implements ParkingLotService {
         parkingLot.setParkingBoyId(parkingBoyId);
         return parkingLot;
     }
+
+    public List<ParkingLot> getfilterParkingLotIsAvalidate(String status){
+        if(status.equals("avaliable"))
+            return memoryDB.getParkingLotList().stream().filter(x->x.getAvaliable()>0).collect(Collectors.toList());
+        else
+            return memoryDB.getParkingLotList().stream().filter(x->x.getAvaliable()==0).collect(Collectors.toList());
+    }
 }
