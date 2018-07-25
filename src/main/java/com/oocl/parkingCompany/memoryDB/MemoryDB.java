@@ -21,7 +21,7 @@ public class MemoryDB {
         this.parkingLotList.add(new ParkingLot(1,1,1,1));
         this.parkingLotList.add(new ParkingLot(2,2,0,2));
 
-        this.orderList.add(new Order(UUID.randomUUID(),UUID.randomUUID(),"unRob"));
+        this.orderList.add(new Order(UUID.randomUUID(),"XXXXXXX","unRob"));
     }
 
     public List<ParkingBoy> getParkingBoyList() {

@@ -20,7 +20,7 @@ public class ReceiptServiceImpl implements ReceiptService {
         if(parkingLotService.getfilterParkingLotByStatus("avaliable").size()>0) {
             UUID uuid = UUID.randomUUID();
             Receipt receipt = new Receipt(uuid,CarNo);
-            orderService.addOrder(receipt);
+            orderService.addOrder(CarNo);
             return receipt;
         }
         else

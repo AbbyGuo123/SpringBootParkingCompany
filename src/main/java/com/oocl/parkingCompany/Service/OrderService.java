@@ -6,7 +6,7 @@ import com.oocl.parkingCompany.Model.Receipt;
 import java.util.List;
 
 public interface OrderService {
-    public Order addOrder(Receipt receipt);
+    public Order addOrder(String carId);
     public List<Order> getUnRobOrderList();
     public Order RobOrder(int parkingBoyId);
 }

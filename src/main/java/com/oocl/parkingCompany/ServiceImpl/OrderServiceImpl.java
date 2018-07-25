@@ -19,9 +19,9 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private ParkingBoysService parkingBoysService;
 
-    public Order addOrder(Receipt receipt){
+    public Order addOrder(String carId){
         UUID uuid = UUID.randomUUID();
-        Order order = new Order(uuid,receipt.getId(),"unRob");
+        Order order = new Order(uuid,carId,"unRob");
         MemoryDB memoryDB = new MemoryDB();
         memoryDB.getOrderList().add(order);
         return order;

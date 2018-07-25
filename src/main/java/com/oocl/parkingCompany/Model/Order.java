@@ -4,15 +4,23 @@ import java.util.UUID;
 
 public class Order {
     private UUID id;
-    private UUID receiptId;
+    private String carId;
     private int parkingBoyId;
     private int parkingLotId;
     private String status;
 
-    public Order(UUID id, UUID receiptId, String status) {
+    public Order(UUID id, String carId, String status) {
         this.id = id;
-        this.receiptId = receiptId;
+        this.carId = carId;
         this.status = status;
+    }
+
+    public String getCarId() {
+        return carId;
+    }
+
+    public void setCarId(String carId) {
+        this.carId = carId;
     }
 
     public UUID getId() {
@@ -23,13 +31,6 @@ public class Order {
         this.id = id;
     }
 
-    public UUID getReceiptId() {
-        return receiptId;
-    }
-
-    public void setReceiptId(UUID receiptId) {
-        this.receiptId = receiptId;
-    }
 
     public int getParkingBoyId() {
         return parkingBoyId;
