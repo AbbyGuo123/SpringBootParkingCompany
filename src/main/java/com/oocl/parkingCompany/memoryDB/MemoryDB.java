@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 @Component
 public class MemoryDB {
@@ -19,6 +20,8 @@ public class MemoryDB {
 
         this.parkingLotList.add(new ParkingLot(1,1,1,1));
         this.parkingLotList.add(new ParkingLot(2,2,0,2));
+
+        this.orderList.add(new Order(UUID.randomUUID(),UUID.randomUUID(),"unRob"));
     }
 
     public List<ParkingBoy> getParkingBoyList() {
