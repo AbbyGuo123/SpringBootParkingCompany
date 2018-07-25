@@ -14,17 +14,17 @@ public class ParkingLotController {
     @Autowired
     private ParkingLotService parkingLotService;
 
-    @PostMapping("")
+    @PostMapping
     public List<ParkingLot> addParkingLot(@RequestBody ParkingLot parkingLot){
         return parkingLotService.addParkingLot(parkingLot);
     }
 
-    @PutMapping("")
+    @PutMapping
     public ParkingLot arrangeParkingBoyInParkingLot(int parkingLotId,int parkingBoyId){
        return parkingLotService.arrangeParkingBoyInParkingLot(parkingLotId,parkingBoyId);
     }
 
-    @GetMapping("")
+    @GetMapping
     public List<ParkingLot> getfilterParkingLotIsAvalidate(String status){
         return parkingLotService.getfilterParkingLotIsAvalidate(status);
     }

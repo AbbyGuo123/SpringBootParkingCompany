@@ -14,10 +14,17 @@ import static org.hamcrest.MatcherAssert.assertThat;
 public class ParkingBoysTest {
 
     @Test
-    public void should_return_parkingBoy_when_call_addParkingBoy_input_ParkingBoy(){
+    public void should_return_parkingBoyList_when_call_addParkingBoy_input_ParkingBoy(){
         ParkingBoysServiceImpl parkingBoysServiceImpl =  new ParkingBoysServiceImpl();
         List<ParkingBoy> parkingBoyList = parkingBoysServiceImpl.addparkingBoy(new ParkingBoy(1,"parkBoy1"));
         assertThat(parkingBoyList.size(),is(3));
+    }
+
+    @Test
+    public void should_return_parkingBoyList_when_call_getAllParkingBoy(){
+        ParkingBoysServiceImpl parkingBoysServiceImpl =  new ParkingBoysServiceImpl();
+        List<ParkingBoy> parkingBoyList = parkingBoysServiceImpl.getAllParkingBoy();
+        assertThat(parkingBoyList.size(),is(2));
     }
 
 

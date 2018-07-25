@@ -15,4 +15,9 @@ public class ParkingBoysServiceImpl implements ParkingBoysService {
         parkingBoyList.add(parkBoy);
         return parkingBoyList;
     }
+    public List<ParkingBoy> getAllParkingBoy(){
+        MemoryDB memoryDB = new MemoryDB();
+        List<ParkingBoy> parkingBoyList = memoryDB.getParkingBoyList();
+        return parkingBoyList;
+    }
 }
